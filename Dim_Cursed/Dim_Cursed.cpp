@@ -18,7 +18,7 @@
 using namespace std;
 
 const int cnt_datos[] = { 10000,20000,30000,40000,50000 };
-const int dim[] = { 50 };
+const int dim[] = { 10,20,30,40,50 };
 const int max_rand = 1000;
 
 vector<vector<vector<vector<tipo_dato_ini>>>> lista(size(dim));
@@ -102,9 +102,7 @@ void frecuencia_dist() {
 					key_mapa.push_back(lista_dist[i][j][k]);
 				mapa[lista_dist[i][j][k]]++;
 			}
-
-			crear_archivo(i,j);
-
+			//crear_archivo(i,j);
 			//print_map();
 			mapa.clear();
 			key_mapa.clear();
