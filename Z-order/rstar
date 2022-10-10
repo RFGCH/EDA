@@ -1,0 +1,32 @@
+Algorithm OverflowTreatment 
+OTl If the level is not the root level and this is the first call of OverflowTreatment in the given level during the Insertion of one data rectangle, 
+then
+ 	invoke Reinsert 
+else 
+invoke Split
+ end
+
+Algorithm Reinsert 
+RI1 For all M+l entries of a node N, compute the distance between the centers of their rectangles and the center of the bounding rectangle of N
+RI2 Sort the entries in decreasing order of their distances computed in RI1
+RI3 Remove the first p entries from N and adjust the bounding rectangle of N 
+RI4 In the sort, defined in R12, starting with the maximum distance (= far reinsert) or minimum distance (= close reinsert), invoke Insert to remsert the entries
+
+Algorithm Split
+S1 Invoke ChooseSpiltAxis to determine the axis, perpendicular to which the split is performed s2 Invoke ChooseSplltIndex to determine the best distribution into two groups along that axis s3 Dlstrlbute the entries into two groups
+
+Algorithm ChooseAxis 
+CA1 Invoke PickSeeds (see p 5) to find the two most distant rectangles of the current node 
+CA2 For each axis record the separation of the two seeds 
+CA3 Normalize the separations by dividing them by the length of the nodes enclosing rectangle along the appropriate axis 
+CA4 Return the axis with the greatest normalized separation
+
+Algorithm PickNext 
+PNl For each entry E not yet in a group, calculate d1 = the area mcrease required in the covering rectangle of Group 1 to include E Rectangle Calculate d2 analogously for Group 2 
+PN2 Choose the entry with the maximum difference between d1 and d2
+
+Algorithm ChooseSplitlndex 
+CSIl Along the chosen split axIs, choose the dlstrlbutlon with the minimum overlap-value Resolve ties by choosing the dlstrlbutlon with minimum area-value
+
+Si es hoja reduce el overlap.
+Si es intermedio reduce el área.
